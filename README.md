@@ -9,13 +9,26 @@ This repository is a **shareable registry of “agent skills”**: self-containe
 - `skills/<skill-name>/references/` — optional templates, examples, or specs used by the skill
 - `skills/registry.json` — index of skills in this repo
 
-## Install a skill (generic)
+## Install a skill (via `npx`)
 
-Pick a skill folder (example: `skills/handoff/`) and install it into your agent environment using one of these approaches:
+Install from this package or any public git repo that follows the same `skills/<name>/` convention:
 
-- **Copy folder install**: copy `skills/<skill-name>/` into your agent’s skills directory.
-- **Vendor into a repo**: copy the folder into your project (keep the `SKILL.md` at the folder root).
-- **Reference-only**: if your agent can’t “install skills”, open `SKILL.md` and paste its content into your agent as a reusable instruction/prompt.
+```bash
+# list available skills
+npx skills list
+
+# install into the current project (default: ./.agent-skills/<skill-name>/)
+npx skills add handoff
+
+# install into a specific directory
+npx skills add handoff --dir ./my-skills
+
+# install into Cursor's global skills directory (~/.cursor/skills/<skill-name>/)
+npx skills add handoff --cursor
+
+# install from a GitHub repo URL (example)
+npx skills add https://github.com/ibelick/ui-skills --skill ui-skills-root
+```
 
 If your agent platform requires a manifest, use `skills/registry.json` as the source of truth for skill names and locations.
 

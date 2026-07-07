@@ -1,0 +1,20 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "Shareable AI agent skills registry with an npx installer CLI.",
+  "license": "MIT",
+  "bin": {
+    "skills": "bin/skills.cjs"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "README.md",
+    "package.json"
+  ]
+}
+
