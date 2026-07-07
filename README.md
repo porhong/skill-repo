@@ -27,7 +27,7 @@ npx skills add handoff --dir ./my-skills
 npx skills add handoff --cursor
 
 # install from a GitHub repo URL (example)
-npx skills add https://github.com/ibelick/ui-skills --skill ui-skills-root
+npx skills add https://github.com/porhong/skill-repo --skill handoff
 ```
 
 If your agent platform requires a manifest, use `skills/registry.json` as the source of truth for skill names and locations.
