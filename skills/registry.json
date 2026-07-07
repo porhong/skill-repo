@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "name": "handoff",
+      "path": "skills/handoff",
+      "entrypoint": "skills/handoff/SKILL.md",
+      "description": "Write and resume session handoff notes so work continues cleanly across chats."
+    }
+  ]
+}
+
