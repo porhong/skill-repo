@@ -5,8 +5,7 @@
       "name": "handoff",
       "path": "skills/handoff",
       "entrypoint": "skills/handoff/SKILL.md",
-      "description": "Write and resume session handoff notes so work continues cleanly across chats."
+      "description": "Session handoff notes with /handoff, /handoff-read, /handoff-refine, and /handoff-clear (one install)."
     }
   ]
 }
-

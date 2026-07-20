@@ -4,7 +4,7 @@
     {
       "id": 1,
       "prompt": "/handoff",
-      "expected_output": "Creates .claude/handoff.md with all six sections populated from the current session context; stops after confirming the file path.",
+      "expected_output": "Creates .claude/handoff.md with all six sections populated from the current session context; stops after confirming the file path; does not continue working.",
       "files": []
     },
     {
@@ -15,9 +15,9 @@
     },
     {
       "id": 3,
-      "prompt": "I've been debugging this auth bug for an hour and we keep trying the same JWT middleware fix. I'm stepping away — hand off what we have.",
-      "expected_output": "Triggers handoff workflow; Failed attempts section documents the JWT middleware dead ends; writes .claude/handoff.md.",
-      "files": []
+      "prompt": "/handoff-refine",
+      "expected_output": "Reads existing .claude/handoff.md, merges this session's progress into all six sections (appending failed attempts and changes), saves updated file, and summarizes what changed.",
+      "files": [".claude/handoff.md"]
     },
     {
       "id": 4,
@@ -27,10 +27,9 @@
     },
     {
       "id": 5,
-      "prompt": "/handoff-refine",
-      "expected_output": "Reads existing .claude/handoff.md, merges this session's progress into all six sections (appending failed attempts and changes), saves updated file, and summarizes what changed.",
-      "files": [".claude/handoff.md"]
+      "prompt": "I've been debugging this auth bug for an hour and we keep trying the same JWT middleware fix. I'm stepping away — hand off what we have.",
+      "expected_output": "Triggers handoff write workflow; Failed attempts section documents the JWT middleware dead ends; writes .claude/handoff.md.",
+      "files": []
     }
   ]
 }
-

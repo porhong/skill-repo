@@ -5,6 +5,7 @@ This repository is a **shareable registry of “agent skills”**: self-containe
 ## Repo layout
 
 - `skills/<skill-name>/SKILL.md` — the skill definition (entrypoint)
+- `skills/<skill-name>/<nested-command>/SKILL.md` — optional nested slash commands (same install)
 - `skills/<skill-name>/evals/` — optional eval prompts/expectations
 - `skills/<skill-name>/references/` — optional templates, examples, or specs used by the skill
 - `skills/registry.json` — index of skills in this repo
@@ -20,11 +21,11 @@ npx skills list
 # install into the current project (default: ./.agent-skills/<skill-name>/)
 npx skills add handoff
 
-# install into a specific directory
-npx skills add handoff --dir ./my-skills
-
 # install into Cursor's global skills directory (~/.cursor/skills/<skill-name>/)
 npx skills add handoff --cursor
+
+# install into a specific directory
+npx skills add handoff --dir ./my-skills
 
 # install from a GitHub repo URL (example)
 npx skills add https://github.com/porhong/skill-repo --skill handoff
@@ -34,12 +35,24 @@ If your agent platform requires a manifest, use `skills/registry.json` as the so
 
 ## Use a skill
 
-Open the skill’s `SKILL.md` and follow its “Use this when” and “Parse/Commands” sections. Most skills in this repo are written to be **compatible with any agent**, even if:
+In Cursor, each `SKILL.md` maps to one slash command (`/name`). Nested `SKILL.md` files inside a package are discovered recursively, so **one install** can expose multiple commands. Most skills in this repo are written to be **compatible with any agent**, even if:
 
 - slash commands aren’t supported (treat commands as keywords)
 - file read/write isn’t supported (fall back to chat output + user copy/paste)
 
+### Handoff (one install → four commands)
+
+```bash
+npx skills add handoff --cursor
+```
+
+| Slash command | Action |
+|---------------|--------|
+| `/handoff` | Write/overwrite `.claude/handoff.md` |
+| `/handoff-read` | Resume from the note |
+| `/handoff-refine` | Merge this session into the existing note |
+| `/handoff-clear` | Delete the note |
+
 ## Skills
 
 See `skills/registry.json` for the full list.
-
